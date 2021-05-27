@@ -1,18 +1,15 @@
-An web application built to fetch data from a profile API
+# 🚀 Welcome to your new awesome project!
 
-[Project URL](https://jolly-bassi-abd98f.netlify.app/)
+This project has been created using **webpack-cli**, you can now run
 
-## Available Scripts
+```
+npm run build
+```
 
-### cd into the project directory
+or
 
-### run `yarn install` to install dependencies
+```
+yarn build
+```
 
-### `yarn start` to start the development server
-
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br />
+to bundle your application
