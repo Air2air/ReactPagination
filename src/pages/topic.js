@@ -1,11 +1,19 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from 'react-router-dom';
 import ReactPaginate from "react-paginate";
 import Layout from "../components/layout/layout";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Button } from "react-bootstrap";
 
 //import "./App.css";
 
 function Topic() {
+
+
+  const history = useHistory();
+
+
+
+
   const [currentPage, setCurrentPage] = useState(0);
   const [profiles, setProfile] = useState([]);
   const singleUserProfile = useState();
@@ -27,8 +35,12 @@ function Topic() {
   const pageCount = Math.ceil(profiles.length / PER_PAGE);
   const foundPageData = singleUserProfile.slice(offset, offset + PER_PAGE);
 
+  // function handlePageClick({ selected: selectedPage }) {
+  //   setCurrentPage(selectedPage);
+  // }
+
   function handlePageClick({ selected: selectedPage }) {
-    setCurrentPage(selectedPage);
+    setCurrentPage(currentPage + 1);
   }
 
   let japaToHome = () => {
@@ -70,19 +82,9 @@ function Topic() {
       </Row>
       <Row>
       <div id="paginate">
-        {
-          <ReactPaginate
-            previousLabel={buttonLabelPrevious}
-            nextLabel={buttonLabelNext}
-            pageCount={pageCount}
-            onPageChange={handlePageClick}
-            containerClassName={"pagination"}
-            previousLinkClassName={"pagination__link"}
-            nextLinkClassName={"pagination__link"}
-            disabledClassName={"pagination__link--disabled"}
-            activeClassName={"pagination__link--active"}
-          />
-        }
+
+      <Button variant="btn btn-success" onClick={(handlePageClick)}>Click </Button>
+
       </div>
       </Row>
     </Layout>
