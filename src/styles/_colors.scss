@@ -17,29 +17,12 @@ $teal: #20c997 !default;
 $cyan: #17a2b8 !default;
 
 $background: $orange;
-$text-color: $background;
+$text-color: $white;
 
 body {
   background-color: $background;
-  color: a11y-color($text-color, $background);
+  color: $text-color;
   .nav-icon-link {
-    color: a11y-color($text-color, $background);
-  }
-}
-
-.topics-button {
-  color: a11y-color($text-color, $background);
-  transition: 0.3s;
-  &.left {
-    background-color: darken($background, 3%);
-    &:hover {
-      background-color: lighten($background, 3%);
-    }
-  }
-  &.right {
-    background-color: lighten($background, 5%);
-    &:hover {
-      background-color: darken($background, 5%);
-    }
+    color: $text-color;
   }
 }

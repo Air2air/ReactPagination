@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Layout from "../components/layout/layout";
-import { Row, Col, Button } from "react-bootstrap";
-
+import { Row, Col } from "react-bootstrap";
 
 function Topic() {
   const [currentPage, setCurrentPage] = useState(0);
@@ -31,33 +30,32 @@ function Topic() {
 
   return (
     <Layout>
-      <Row>
-        <Col xs lg="2">
-          {/* {navigateToHome} */}
-        </Col>
-        <Col md="auto">
-          {currentPageData.map((profile) => {
-            const { topicId, category, gender, content } = profile;
-            return (
-              <Col key={topicId}>
-                <p>{category}</p> {gender}
-                <h1>{content}</h1>
+      {currentPageData.map((profile) => {
+        const { topicId, category, gender, content, prevButton, nextButton } =
+          profile;
+        return (
+          <>
+            <Row>
+                <Col className="topic-content"key={topicId}>
+                  <p>{category}</p> {gender}
+                  <h1>{content}</h1>
+                </Col>
+            </Row>
+            <Row>
+              <Col py-0 my-0>
+                <div className="topics-button left" onClick={handlePrevClick}>
+                  {prevButton}
+                </div>
               </Col>
-            );
-          })}
-        </Col>
-        <Col xs lg="2"></Col>
-      </Row>
-      <Row>
-        <div id="paginate">
-          <Button variant="btn btn-success" onClick={handlePrevClick}>
-            PrevClick{" "}
-          </Button>
-          <Button variant="btn btn-success" onClick={handleNextClick}>
-            NextClick{" "}
-          </Button>
-        </div>
-      </Row>
+              <Col py-0 my-0>
+                <div className="topics-button right" onClick={handleNextClick}>
+                  {nextButton}
+                </div>
+              </Col>
+            </Row>
+          </>
+        );
+      })}
     </Layout>
   );
 }
