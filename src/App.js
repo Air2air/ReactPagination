@@ -6,7 +6,6 @@ import Topic from "./pages/topic";
 
 function App() {
   return (
-    <>
       <Router>
         <Header />
         <Switch>
@@ -18,7 +17,6 @@ function App() {
           </Route>
         </Switch>
       </Router>
-    </>
   );
 }
 
