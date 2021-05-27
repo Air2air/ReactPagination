@@ -1,7 +1,8 @@
 import React from "react";
-import { Row, Col } from 'react-bootstrap'
+// import { Row, Col } from 'react-bootstrap'
 
-export const Search = ({
+export const Search = (
+  {
   GenderValue,
   PaymentValue,
   setGenderValue,
@@ -25,7 +26,7 @@ export const Search = ({
 
   return (
     <>
-    <Row className="justify-content-center">
+    {/* <Row className="justify-content-center">
       <Col sm={8} md={6}>
       <form onSubmit={searchUser}>
         <input
@@ -69,7 +70,7 @@ export const Search = ({
         </Col>
       </Row>
       </Col>
-    </Row>
+    </Row> */}
     </>
   );
 };

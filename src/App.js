@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Layout } from "./layouts/Layout";
 import image from "./images/logo192.png";
-import { Search } from "./components/Search";
 import ReactPaginate from "react-paginate";
 import { Row, Col, Card, CardDeck } from "react-bootstrap";
 
@@ -10,12 +9,9 @@ import "./App.css";
 export const App = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [profiles, setProfile] = useState([]);
-  const [singleUserProfile, setsingleUserProfile] = useState([]);
-  const [searchText, setSearchText] = useState("");
+  const singleUserProfile = useState();
   const [home_button, show_home_button] = useState(false);
-  const [errorMsg, setErrorMsg] = useState("");
-  const [GenderValue, setGenderValue] = useState("");
-  const [PaymentValue, setPaymentValue] = useState("");
+
 
   useEffect(() => {
     fetch("api.json")
@@ -33,39 +29,6 @@ export const App = () => {
   function handlePageClick({ selected: selectedPage }) {
     setCurrentPage(selectedPage);
   }
-  const searchUser = (e) => {
-    e.preventDefault();
-    setErrorMsg("");
-    let usersProfile = [...profiles];
-    let foundUser = usersProfile.filter(
-      (profile) =>
-        profile.FirstName.toLowerCase() === searchText.toLowerCase() ||
-        profile.LastName.toLowerCase() === searchText.toLowerCase()
-    );
-    if (foundUser.length === 0) {
-      setErrorMsg(
-        "No User Associated With Such Details... Please Search Again "
-      );
-      return;
-    }
-    setsingleUserProfile(foundUser);
-    setSearchText("");
-    show_home_button(true);
-  };
-
-  const filterUsersProfile = (value) => {
-    let usersProfile = [...profiles];
-    let foundUser = usersProfile.filter(
-      (profile) => profile.PaymentMethod === value || profile.Gender === value
-    );
-    setsingleUserProfile(foundUser);
-    show_home_button(true);
-  };
-
-  const handleUserInput = (e) => {
-    setErrorMsg("");
-    setSearchText(e.target.value);
-  };
 
   let japaToHome = () => {
     setProfile(profiles);
@@ -81,18 +44,9 @@ export const App = () => {
 
   return (
     <Layout>
-      <Search
-        searchText={searchText}
-        handleUserInput={handleUserInput}
-        searchUser={searchUser}
-        GenderValue={GenderValue}
-        PaymentValue={PaymentValue}
-        setGenderValue={setGenderValue}
-        setPaymentValue={setPaymentValue}
-        filterUsersProfile={filterUsersProfile}
-      />
+
       {navigateToHome}
-      <p>{errorMsg}</p>
+
       <Row>
         <CardDeck>
           {UserProfile.map((profile) => {
