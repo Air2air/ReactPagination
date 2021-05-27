@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Layout } from "./layouts/Layout";
-import image from "./images/logo192.png";
 import ReactPaginate from "react-paginate";
 import { Row, Col, Card, CardDeck } from "react-bootstrap";
 
@@ -12,9 +11,8 @@ export const App = () => {
   const singleUserProfile = useState();
   const [home_button, show_home_button] = useState(false);
 
-
   useEffect(() => {
-    fetch("api.json")
+    fetch("./data/api.json")
       .then((data) => data.json())
       .then(({ records }) => {
         setProfile(records.profiles);
@@ -44,16 +42,14 @@ export const App = () => {
 
   return (
     <Layout>
-
       {navigateToHome}
-
       <Row>
         <CardDeck>
           {UserProfile.map((profile) => {
-            const { UserName, FirstName, LastName, Gender, Email } = profile;
+            const { UserName, FirstName, LastName, Email } = profile;
             return (
               <Col key={UserName}>
-                <Card.Img variant="top" src={image} />
+
                 <Card.Body>
                   <Card.Title>Card title</Card.Title>
                   <Card.Text>
@@ -70,7 +66,6 @@ export const App = () => {
                   <h2>
                     {FirstName}, {LastName}
                   </h2>
-                  <p> Gender {Gender}</p>
                 </div>
               </Col>
             );
@@ -80,8 +75,8 @@ export const App = () => {
       <div id="paginate">
         {
           <ReactPaginate
-            previousLabel={"← Previous"}
-            nextLabel={"Next →"}
+            previousLabel={"Previous"}
+            nextLabel={"Next"}
             pageCount={pageCount}
             onPageChange={handlePageClick}
             containerClassName={"pagination"}
