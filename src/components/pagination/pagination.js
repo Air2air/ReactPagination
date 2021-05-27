@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Layout } from "./layouts/Layout";
 import ReactPaginate from "react-paginate";
-import { Row, Col, Card, CardDeck } from "react-bootstrap";
 
-//import "./App.css";
 
-export const App = () => {
+export default function Pagination() {
   const [currentPage, setCurrentPage] = useState(0);
   const [profiles, setProfile] = useState([]);
   const singleUserProfile = useState();
@@ -47,33 +44,9 @@ export const App = () => {
   let buttonLabelPrevious = "Prev";
   let buttonLabelNext = "Next";
 
-  return (
-    <Layout>
-      {navigateToHome}
-      <Row>
-        <CardDeck>
-          {UserProfile.map((profile) => {
-            const { UserName, FirstName, LastName, Email } = profile;
-            return (
-              <Col key={FirstName}>
-                <Card.Body>
-                  <Card.Title>Card title</Card.Title>
-                </Card.Body>
-                <p>
-                  {UserName} Email:{Email}
-                </p>
 
-                <div>
-                  <h2>
-                    {FirstName}, {LastName}
-                  </h2>
-                </div>
-              </Col>
-            );
-          })}
-        </CardDeck>
-      </Row>
-      <div id="paginate">
+    return (
+        <div id="paginate">
         {
           <ReactPaginate
             previousLabel={buttonLabelPrevious}
@@ -88,6 +61,5 @@ export const App = () => {
           />
         }
       </div>
-    </Layout>
-  );
-};
+    )
+}
