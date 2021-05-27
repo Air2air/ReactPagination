@@ -1,19 +1,23 @@
-import React from 'react'
+import React from "react";
 import { Link } from "react-router-dom";
+import { Navbar, Nav, Container } from "react-bootstrap";
 
-function Header(){
+function Header() {
   return (
-    <nav>
-      <ul>
-        <li>
+    <Navbar variant="pills" className="justify-content-around">
+      <Container>
+      <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+      <Navbar.Toggle />
+
+        <Nav.Item>
           <Link to="/">Home</Link>
-        </li>
-        <li>
+        </Nav.Item>
+        <Nav.Item>
           <Link to="/topic">Topic</Link>
-        </li>
-      </ul>
-    </nav>
-  )
+        </Nav.Item>
+      </Container>
+    </Navbar>
+  );
 }
 
-export default Header
+export default Header;
