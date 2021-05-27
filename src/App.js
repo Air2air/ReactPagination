@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Layout } from "./layouts/Layout";
 import ReactPaginate from "react-paginate";
-import { Row, Col, Card, CardDeck } from "react-bootstrap";
+import { Row, Col, Card} from "react-bootstrap";
 
 //import "./App.css";
 
@@ -48,10 +47,8 @@ export const App = () => {
   let buttonLabelNext = "Next";
 
   return (
-    <Layout>
+<>
       {navigateToHome}
-      <Row>
-        <CardDeck>
           {UserProfile.map((profile) => {
             const { UserName, FirstName, LastName, Email } = profile;
             return (
@@ -71,8 +68,6 @@ export const App = () => {
               </Col>
             );
           })}
-        </CardDeck>
-      </Row>
       <div id="paginate">
         {
           <ReactPaginate
@@ -88,6 +83,6 @@ export const App = () => {
           />
         }
       </div>
-    </Layout>
+</>
   );
 };
