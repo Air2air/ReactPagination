@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ReactPaginate from "react-paginate";
 import Layout from "../components/layout/layout";
-import { Col, Card } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 
 //import "./App.css";
 
@@ -49,26 +49,26 @@ function Topic() {
 
   return (
     <Layout>
-      {navigateToHome}
-      {UserProfile.map((profile) => {
-        const { UserName, FirstName, LastName, Email } = profile;
-        return (
-          <Col key={FirstName}>
-            <Card.Body>
-              <Card.Title>Card title</Card.Title>
-            </Card.Body>
-            <p>
-              {UserName} Email:{Email}
-            </p>
-
-            <div>
-              <h2>
-                {FirstName}, {LastName}
-              </h2>
-            </div>
-          </Col>
-        );
-      })}
+      <Row>
+        <Col xs lg="2">
+          {navigateToHome}
+        </Col>
+        <Col md="auto">
+          {UserProfile.map((profile) => {
+            const { topicId, category, gender, content } = profile;
+            return (
+              <Col key={topicId}>
+                <p>{category}</p> {gender}
+                <h1>{content}</h1>
+              </Col>
+            );
+          })}
+        </Col>
+        <Col xs lg="2">
+          3 of 3
+        </Col>
+      </Row>
+      <Row>
       <div id="paginate">
         {
           <ReactPaginate
@@ -84,9 +84,9 @@ function Topic() {
           />
         }
       </div>
+      </Row>
     </Layout>
   );
-};
+}
 
-
-export default Topic
+export default Topic;
