@@ -1,41 +1,25 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
-import Home from "./pages/home"
-import Topic from "./pages/topic"
-
+import { HashRouter as Router, Switch, Route} from "react-router-dom";
+import Header from "./components/header/header";
+import Home from "./pages/home";
+import Topic from "./pages/topic";
 
 function App() {
   return (
-    <Router>
-      <div>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/topic">Topic</Link>
-          </li>
-        </ul>
-
-        <hr />
-
+    <>
+      <Router>
+        <Header />
         <Switch>
           <Route exact path="/">
             <Home />
           </Route>
           <Route path="/topic">
-          <Topic />
+            <Topic />
           </Route>
         </Switch>
-      </div>
-    </Router>
+      </Router>
+    </>
   );
 }
 
-
-export default App
+export default App;
