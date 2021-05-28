@@ -4,7 +4,7 @@ import { Row, Col } from "react-bootstrap";
 
 function Topic() {
   const [currentPage, setCurrentPage] = useState(0);
-  const [profiles, setProfile] = useState([]);
+  const [topics, setTopic] = useState([]);
 
   const dataSource = "./data/topics.json";
 
@@ -12,13 +12,13 @@ function Topic() {
     fetch(dataSource)
       .then((data) => data.json())
       .then(({ topics }) => {
-        setProfile(topics.profiles);
+        setTopic(topics);
       });
   }, []);
 
   const PER_PAGE = 1;
   const offset = currentPage * PER_PAGE;
-  const currentPageData = profiles.slice(offset, offset + PER_PAGE);
+  const currentPageData = topics.slice(offset, offset + PER_PAGE);
 
   function handlePrevClick() {
     let prevPage = currentPage - 1;
@@ -38,9 +38,9 @@ function Topic() {
 
   return (
     <Layout>
-      {currentPageData.map((profile) => {
+      {currentPageData.map((topic) => {
         const { topicId, category, gender, content, prevButton, nextButton } =
-          profile;
+          topic;
         return (
           <div key={topicId}>
             <Row>
