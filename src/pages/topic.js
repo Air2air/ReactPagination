@@ -34,26 +34,26 @@ function Topic() {
         const { topicId, category, gender, content, prevButton, nextButton } =
           profile;
         return (
-          <>
+          <div key={topicId}>
             <Row>
-                <Col className="topic-content"key={topicId}>
+                <Col className="topic-content">
                   <p>{category}</p> {gender}
                   <h1>{content}</h1>
                 </Col>
             </Row>
             <Row>
-              <Col py-0 my-0>
+              <Col className="p-0 m-0">
                 <div className="topics-button left" onClick={handlePrevClick}>
                   {prevButton}
                 </div>
               </Col>
-              <Col py-0 my-0>
+              <Col className="p-0 m-0">
                 <div className="topics-button right" onClick={handleNextClick}>
                   {nextButton}
                 </div>
               </Col>
             </Row>
-          </>
+            </div>
         );
       })}
     </Layout>
