@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Layout from "../components/layout/layout";
 import { Row, Col } from "react-bootstrap";
+import Confidence from "./../components/confidence";
 
 const dataSource = "./data/topics.json";
 
@@ -28,6 +29,7 @@ function Topic() {
       setCurrentPage(prevPage);
       console.log(prevPage);
     } else {
+      setCurrentPage(topicsCount - 1);
       console.log("Can't go back");
     }
   }
@@ -46,8 +48,15 @@ function Topic() {
   return (
     <Layout>
       {currentPageData.map((topic) => {
-        const { topicId, category, gender, content, prevButton, nextButton } =
-          topic;
+        const {
+          topicId,
+          category,
+          gender,
+          content,
+          confidence,
+          firstButton,
+          secondButton,
+        } = topic;
         return (
           <div key={topicId}>
             <Row>
@@ -56,15 +65,23 @@ function Topic() {
                 <h1>{content}</h1>
               </Col>
             </Row>
+            <Confidence level={confidence} />
+
             <Row>
               <Col className="p-0 m-0">
-                <div className="topics-button left" onClick={handlePrevClick}>
-                  {prevButton}
+                <div
+                  className="topics-button left p-3 pb-5"
+                  onClick={handlePrevClick}
+                >
+                  {firstButton}
                 </div>
               </Col>
               <Col className="p-0 m-0">
-                <div className="topics-button right" onClick={handleNextClick}>
-                  {nextButton}
+                <div
+                  className="topics-button right p-3 pb-5"
+                  onClick={handleNextClick}
+                >
+                  {secondButton}
                 </div>
               </Col>
             </Row>
