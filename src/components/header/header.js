@@ -6,8 +6,6 @@ function Header() {
   return (
     <Navbar variant="pills" className="justify-content-around">
       <Container>
-      <Navbar.Brand href="#home">Doodle pants</Navbar.Brand>
-      <Navbar.Toggle />
         <Nav.Item>
           <Link to="/">Topics</Link>
         </Nav.Item>

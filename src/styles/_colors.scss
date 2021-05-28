@@ -20,9 +20,54 @@ $background: $orange;
 $text-color: $white;
 
 body {
-  background-color: $background;
-  color: $text-color;
-  .nav-icon-link {
-    color: $text-color;
+  &.blue {
+    $basecolor: $blue;
+    color: lighten($basecolor, 40%);
+    background: $basecolor;
+  }
+  &.indigo {
+    $basecolor: $indigo;
+    color: lighten($basecolor, 40%);
+    background: $basecolor;
+  }
+  &.purple {
+    $basecolor: $purple;
+    color: lighten($basecolor, 40%);
+    background: $basecolor;
+  }
+  &.pink {
+    $basecolor: $pink;
+    color: lighten($basecolor, 40%);
+    background: $basecolor;
+  }
+  &.red {
+    $basecolor: $red;
+    color: lighten($basecolor, 40%);
+    background: $basecolor;
+  }
+  &.orange {
+    $basecolor: $orange;
+    color: lighten($basecolor, 40%);
+    background: $basecolor;
+  }
+  &.yellow {
+    $basecolor: $yellow;
+    color: lighten($basecolor, 40%);
+    background: $basecolor;
+  }
+  &.green{
+    $basecolor: $green;
+    color: lighten($basecolor, 40%);
+    background: $basecolor;
+  }
+  &.teal{
+    $basecolor: $teal;
+    color: lighten($basecolor, 40%);
+    background: $basecolor;
+  }
+  &.cyan{
+    $basecolor: $cyan;
+    color: lighten($basecolor, 40%);
+    background: $basecolor;
   }
 }

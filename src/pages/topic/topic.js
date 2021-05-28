@@ -45,6 +45,11 @@ function Topic() {
     }
   }
 
+  function changeColor(color) {
+    document.body.removeAttribute("class");
+    document.body.classList.add(color);
+  }
+
   return (
     <Layout>
       {currentPageData.map((topic) => {
@@ -56,7 +61,11 @@ function Topic() {
           confidence,
           firstButton,
           secondButton,
+          color,
         } = topic;
+
+        changeColor(color);
+
         return (
           <div key={topicId}>
             <Row>
