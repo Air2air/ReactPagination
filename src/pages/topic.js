@@ -21,11 +21,19 @@ function Topic() {
   const currentPageData = profiles.slice(offset, offset + PER_PAGE);
 
   function handlePrevClick() {
-    setCurrentPage(currentPage - 1);
+    let prevPage = currentPage - 1;
+    if (prevPage >= 0) {
+      setCurrentPage(prevPage);
+      console.log(prevPage);
+    } else {
+      console.log("Can't go back");
+    }
   }
 
   function handleNextClick() {
-    setCurrentPage(currentPage + 1);
+    let nextPage = currentPage + 1;
+    setCurrentPage(nextPage);
+    console.log(nextPage);
   }
 
   return (
@@ -36,10 +44,10 @@ function Topic() {
         return (
           <div key={topicId}>
             <Row>
-                <Col className="topic-content">
-                  <p>{category}</p> {gender}
-                  <h1>{content}</h1>
-                </Col>
+              <Col className="topic-content">
+                <p>{category}</p> {gender}
+                <h1>{content}</h1>
+              </Col>
             </Row>
             <Row>
               <Col className="p-0 m-0">
@@ -53,7 +61,7 @@ function Topic() {
                 </div>
               </Col>
             </Row>
-            </div>
+          </div>
         );
       })}
     </Layout>
