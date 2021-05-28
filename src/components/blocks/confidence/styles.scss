@@ -3,10 +3,11 @@
 
 $confidence-opacity: 0.6;
 
-.confidence {
-    position:relative;
+
+.block-confidence {
+    position:absolute;
     width:120px;
-    right:0px;
+    height:120px;
   .label {
     opacity: $confidence-opacity;
     text-transform: uppercase;
@@ -21,7 +22,7 @@ $confidence-opacity: 0.6;
 }
 
 
-.confidence {
+.block-confidence {
     background-color: rgba(0,0,0,0.5);
   }
 

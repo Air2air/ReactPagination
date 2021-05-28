@@ -19,55 +19,62 @@ $cyan: #17a2b8 !default;
 $background: $orange;
 $text-color: $white;
 
+
+body {
+  transition: background-color 0.3s;
+}
+
+$text-lighten:45%;
+
 body {
   &.blue {
     $basecolor: $blue;
-    color: lighten($basecolor, 40%);
+    color: lighten($basecolor, $text-lighten);
     background: $basecolor;
   }
   &.indigo {
     $basecolor: $indigo;
-    color: lighten($basecolor, 40%);
+    color: lighten($basecolor, $text-lighten);
     background: $basecolor;
   }
   &.purple {
     $basecolor: $purple;
-    color: lighten($basecolor, 40%);
+    color: lighten($basecolor, $text-lighten);
     background: $basecolor;
   }
   &.pink {
     $basecolor: $pink;
-    color: lighten($basecolor, 40%);
+    color: lighten($basecolor, $text-lighten);
     background: $basecolor;
   }
   &.red {
     $basecolor: $red;
-    color: lighten($basecolor, 40%);
+    color: lighten($basecolor, $text-lighten);
     background: $basecolor;
   }
   &.orange {
     $basecolor: $orange;
-    color: lighten($basecolor, 40%);
+    color: lighten($basecolor, $text-lighten);
     background: $basecolor;
   }
   &.yellow {
     $basecolor: $yellow;
-    color: lighten($basecolor, 40%);
+    color: lighten($basecolor, $text-lighten);
     background: $basecolor;
   }
   &.green{
     $basecolor: $green;
-    color: lighten($basecolor, 40%);
+    color: lighten($basecolor, $text-lighten);
     background: $basecolor;
   }
   &.teal{
     $basecolor: $teal;
-    color: lighten($basecolor, 40%);
+    color: lighten($basecolor, $text-lighten);
     background: $basecolor;
   }
   &.cyan{
     $basecolor: $cyan;
-    color: lighten($basecolor, 40%);
+    color: lighten($basecolor, $text-lighten);
     background: $basecolor;
   }
 }

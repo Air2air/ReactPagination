@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Layout from "../../components/layout/layout";
 import { Row, Col } from "react-bootstrap";
-import Confidence from "../../components/confidence/confidence";
-
+import Confidence from "../../components/blocks/confidence/confidence";
+import Category from "../../components/blocks/category/category";
 const dataSource = "./data/topics.json";
 
 function Topic() {
@@ -56,7 +56,6 @@ function Topic() {
         const {
           topicId,
           category,
-          gender,
           content,
           confidence,
           firstButton,
@@ -69,12 +68,13 @@ function Topic() {
         return (
           <div key={topicId}>
             <Row>
-              <Col className="topic-content px-5">
-                <p>{category}</p> {gender}
-                <h1>{content}</h1>
+              <Col className="content px-5">
+                <p>{category}</p>
+                <p>{content}</p>
               </Col>
             </Row>
             <Confidence level={confidence} />
+            <Category category={category} />
             <Row>
               <Col className="p-0 m-0">
                 <div
