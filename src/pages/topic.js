@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import Layout from "../components/layout/layout";
 import { Row, Col } from "react-bootstrap";
 
+const dataSource = "./data/topics.json";
+
 function Topic() {
   const [currentPage, setCurrentPage] = useState(0);
   const [topics, setTopic] = useState([]);
-
-  const dataSource = "./data/topics.json";
 
   useEffect(() => {
     fetch(dataSource)
@@ -14,11 +14,13 @@ function Topic() {
       .then(({ topics }) => {
         setTopic(topics);
       });
+    setCurrentPage(0);
   }, []);
 
   const PER_PAGE = 1;
   const offset = currentPage * PER_PAGE;
   const currentPageData = topics.slice(offset, offset + PER_PAGE);
+  const topicsCount = Object.keys(topics).length;
 
   function handlePrevClick() {
     let prevPage = currentPage - 1;
@@ -32,8 +34,13 @@ function Topic() {
 
   function handleNextClick() {
     let nextPage = currentPage + 1;
-    setCurrentPage(nextPage);
-    console.log(nextPage);
+    if (nextPage <= topicsCount - 1) {
+      setCurrentPage(nextPage);
+      console.log(nextPage);
+    } else {
+      setCurrentPage(0);
+      console.log("Reached the end");
+    }
   }
 
   return (
