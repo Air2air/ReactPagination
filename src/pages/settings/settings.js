@@ -1,7 +1,7 @@
 import React from "react";
 
 
-function Home() {
+function Settings() {
     return (
       <div>
         <h2>Home</h2>
@@ -10,4 +10,4 @@ function Home() {
   }
   
 
-  export default Home
+  export default Settings

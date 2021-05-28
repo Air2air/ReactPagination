@@ -6,14 +6,13 @@ function Header() {
   return (
     <Navbar variant="pills" className="justify-content-around">
       <Container>
-      <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+      <Navbar.Brand href="#home">Doodle pants</Navbar.Brand>
       <Navbar.Toggle />
-
         <Nav.Item>
-          <Link to="/">Home</Link>
+          <Link to="/">Topics</Link>
         </Nav.Item>
         <Nav.Item>
-          <Link to="/topic">Topic</Link>
+          <Link to="/settings">Settings</Link>
         </Nav.Item>
       </Container>
     </Navbar>

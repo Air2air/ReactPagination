@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Layout from "../components/layout/layout";
+import Layout from "../../components/layout/layout";
 import { Row, Col } from "react-bootstrap";
-import Confidence from "./../components/confidence";
+import Confidence from "../../components/confidence/confidence";
 
 const dataSource = "./data/topics.json";
 
@@ -60,13 +60,12 @@ function Topic() {
         return (
           <div key={topicId}>
             <Row>
-              <Col className="topic-content">
+              <Col className="topic-content px-5">
                 <p>{category}</p> {gender}
                 <h1>{content}</h1>
               </Col>
             </Row>
             <Confidence level={confidence} />
-
             <Row>
               <Col className="p-0 m-0">
                 <div

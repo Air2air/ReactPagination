@@ -1,0 +1,39 @@
+
+
+
+$confidence-opacity: 0.6;
+
+.confidence {
+    position:relative;
+    width:120px;
+    right:0px;
+  .label {
+    opacity: $confidence-opacity;
+    text-transform: uppercase;
+  }
+  .value {
+    font-size: 3em;
+    height:1.2em;
+    span {
+      opacity: $confidence-opacity;
+    }
+  }
+}
+
+
+.confidence {
+    background-color: rgba(0,0,0,0.5);
+  }
+
+// .confidence {
+//   background-color: blue;
+//   .label {
+//     background-color: red;
+//   }
+//   .value {
+//     background-color: gold;
+//     span {
+//       opacity: 0.6;
+//     }
+//   }
+// }
