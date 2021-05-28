@@ -73,8 +73,10 @@ function Topic() {
                 <p>{content}</p>
               </Col>
             </Row>
-            <Confidence level={confidence} />
-            <Category category={category} />
+            <div className="block-wrapper">
+              <Confidence level={confidence} />
+              <Category category={category} />
+            </div>
             <Row>
               <Col className="p-0 m-0">
                 <div
